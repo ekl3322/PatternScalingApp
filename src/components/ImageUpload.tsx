@@ -16,7 +16,7 @@ const ImageUpload = ({ onImageChanged }: Props) => {
   };
 
   return (
-    <div>
+    <div style={{ margin: 10 }}>
       <input type="file" accept="image/*" onChange={handleImageChanged} />
     </div>
   );

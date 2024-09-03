@@ -37,6 +37,7 @@ const ImageGrid: React.FC<Props> = ({
         backgroundSize: `${scaledImageWidth}px ${scaledImageHeight}px`,
         backgroundRepeat: "repeat",
         overflow: "hidden",
+        margin: 10,
       }}
     >
       {/* The grid cells themselves will be empty */}
