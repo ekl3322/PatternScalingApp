@@ -17,7 +17,9 @@ const ImageScaler: React.FC<Props> = ({ rangeValue, handleRangeChanged }) => {
         value={rangeValue}
         onChange={handleRangeChanged}
       />
-      <p>Scale: {rangeValue}%</p>
+      <center>
+        <p>Scale: {rangeValue}%</p>
+      </center>
     </div>
   );
 };

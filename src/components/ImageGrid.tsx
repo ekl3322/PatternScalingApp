@@ -5,6 +5,8 @@ interface Props {
   imageHeight: number;
   imageWidth: number;
   scaleValue: number;
+  gridWidth: number;
+  gridHeight: number;
 }
 
 const ImageGrid: React.FC<Props> = ({
@@ -12,14 +14,14 @@ const ImageGrid: React.FC<Props> = ({
   imageHeight,
   imageWidth,
   scaleValue,
+  gridWidth,
+  gridHeight,
 }) => {
-  const gridSize = 500;
-
   const scaledImageWidth = imageWidth * scaleValue;
   const scaledImageHeight = imageHeight * scaleValue;
 
-  const numColumns = Math.ceil(gridSize / scaledImageWidth);
-  const numRows = Math.ceil(gridSize / scaledImageHeight);
+  const numColumns = Math.ceil(gridWidth / scaledImageWidth);
+  const numRows = Math.ceil(gridHeight / scaledImageHeight);
 
   const cellWidth = scaledImageWidth;
   const cellHeight = scaledImageHeight;
@@ -31,8 +33,8 @@ const ImageGrid: React.FC<Props> = ({
         display: "grid",
         gridTemplateColumns: `repeat(${numColumns}, ${cellWidth}px)`,
         gridTemplateRows: `repeat(${numRows}, ${cellHeight}px)`,
-        width: gridSize,
-        height: gridSize,
+        width: gridWidth,
+        height: gridHeight,
         backgroundImage: `url(${imageUrl})`,
         backgroundSize: `${scaledImageWidth}px ${scaledImageHeight}px`,
         backgroundRepeat: "repeat",
@@ -40,7 +42,6 @@ const ImageGrid: React.FC<Props> = ({
         margin: 10,
       }}
     >
-      {/* The grid cells themselves will be empty */}
       {Array.from({ length: numColumns * numRows }).map((_, index) => (
         <div
           key={index}
